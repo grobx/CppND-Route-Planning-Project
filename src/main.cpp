@@ -27,6 +27,24 @@ static std::optional<std::vector<std::byte>> ReadFile(const std::string &path)
     return std::move(contents);
 }
 
+bool checkRange(int input) {
+    return input >= 0 && input <= 100;
+}
+
+int getInput(const char* inputMsg) {
+    int input;
+
+    do {
+        std::cout << "Please enter" << inputMsg << " (range [0,100]): ";
+        std::cin >> input;
+        if (checkRange(input))
+            break;
+        std::cout << "ERROR: the input must be in the range [0,100]" << std::endl;
+    } while (true);
+
+    return input;
+}
+
 int main(int argc, const char **argv)
 {    
     std::string osm_data_file = "";
@@ -53,9 +71,10 @@ int main(int argc, const char **argv)
     }
 
     // Read user inputs.
-    float start_x, start_y, end_x, end_y;
-    std::cout << "Enter start and end coordinates on one line separated by spaces and press return: ";
-    std::cin >> start_x >> start_y >> end_x >> end_y;
+    int start_x = getInput("start x coordinate"),
+        start_y = getInput("start y coordinate"),
+        end_x = getInput("end x coordinate"),
+        end_y = getInput("end y coordinate");
     std::cout <<
       "Going from (" << start_x << "," << start_y <<
       ") to (" << end_x << "," << end_y << ")" << std::endl;

@@ -29,7 +29,16 @@ git clone git@github.com:udacity/CppND-Route-Planning-Project.git --recurse-subm
 * IO2D
   * Installation instructions for all operating systems can be found [here](https://github.com/cpp-io2d/P0267_RefImpl/blob/master/BUILDING.md)
   * This library must be built in a place where CMake `find_package` will be able to find it
- 
+
+
+## Dependencies for Running Locally on Arch Linux
+
+```sh
+sudo pacman -S cmake gcc
+rua install cpp-io2d-git
+```
+
+Look at this if you encounter error installing `cpp-io2d-git`: https://github.com/GregoryLand/aur-cpp-io2d-git/issues/1
 
 ## Compiling and Running
 
